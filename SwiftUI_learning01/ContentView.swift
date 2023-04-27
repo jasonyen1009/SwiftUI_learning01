@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // 控制顯示的 heart 圖示
+    @State private var isFill = true
     var body: some View {
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Image(systemName: isFill ? "heart.fill" : "heart")
+                .resizable()
+                .scaledToFit()
+            
+            Button {
+                // 點選 button 時，觸發的事件
+                isFill.toggle()
+            } label: {
+                Text("press")
+            }
         }
-        .padding()
     }
 }
 
